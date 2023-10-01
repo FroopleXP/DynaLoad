@@ -1,8 +1,6 @@
 module.exports = {
     mode: process.env.NODE_ENV || "development",
-    entry: {
-        "dynaload": ["./src/dynaload.ts"]
-    },
+    entry: "./src/index.ts",
     module: {
         rules: [
             {
@@ -15,13 +13,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".js", ".tsx"]
     },
     output: {
-        libraryExport: "default",
-        library: "DynaLoad",
-        filename: "dynaload.js",
+        filename: "index.min.js",
         libraryTarget: "umd",
-        globalObject: "this"
     },
 }

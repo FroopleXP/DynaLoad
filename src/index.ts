@@ -1,11 +1,7 @@
 import Ajv from "ajv";
 import { inferDataType, snakeCaseToCamelCase } from "./utils";
 
-type Config = {
-    [key: string]: string | number | boolean | null;
-};
-
-class DynaLoad {
+export class DynaLoad {
     private readonly url: string;
 
     constructor(url: string) {
@@ -33,7 +29,7 @@ class DynaLoad {
         throw new Error(`invalid config response: ${JSON.stringify(validate.errors)}`);
     }
 
-    private parseTextConfigToJSON(text: string): Config {
+    private parseTextConfigToJSON(text: string): any {
         let config = {};
 
         text.split(/\r?\n/).forEach((line, index) => {
@@ -63,4 +59,4 @@ class DynaLoad {
     }
 }
 
-export default DynaLoad;
+module.exports = { DynaLoad };

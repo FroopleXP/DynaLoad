@@ -5,6 +5,9 @@
         "sourceMap": true,
         "declaration": true,
         "outDir": "./dist",
-        "removeComments": false
-    }
+        "removeComments": false,
+        "rootDir": "./src",
+        "esModuleInterop": true
+    },
+    "exclude": ["./node_modules", "./dist"]
 }
